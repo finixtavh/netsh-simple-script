@@ -2,10 +2,13 @@ $var = ""
 $arg = "wlan"
 $filepath = "c.txt"
 $enableclipboard = $false
+$charmultiplier = 40
+$lineseparator = "=" * $charmultiplier + "`n"
 
 while ($var -ne "exit") {
-    Write-Host "Copiar al portapapeles?= $enableclipboard `n Ruta del archivo: $filepath `n $arg"
-    $var = Read-Host "B = Buscar || N = netsh || exit = salir del bucle || C = Config. || A = Guardar todas las claves || json = Convertir .txt a .json"
+    Write-Host "$lineseparator"
+    Write-Host "Copiar al portapapeles?= $enableclipboard `nRuta del archivo: $filepath`n $arg"
+    $var = Read-Host "`n`nB = Buscar`nN = netsh`nexit = salir del bucle`nC = Config.`nA = Guardar todas las claves`njson = Convertir .txt a .json`n:: "
 
     if (-not (Test-Path $filepath)) {
         Set-Content -Path $filepath -Value $null
@@ -76,6 +79,15 @@ while ($var -ne "exit") {
                 "f" {
                     $filepath = Read-Host "Coloca la ruta:"
                 }
+
+                "m" {
+                    while ($) {
+                        $charmultiplier = Read-Host ": "
+                        if ($charmultiplier -is [int]) {
+                            break
+                        }
+                    } 
+                }   
             }
         }
 
@@ -102,7 +114,6 @@ while ($var -ne "exit") {
         }
 
         "json" {
-
             Python dicttojson.py $ssid $p
         }
         "exit" {
@@ -110,8 +121,8 @@ while ($var -ne "exit") {
         }
 
         default {
-            Clear-Host
-            Write-Host "Usa b para buscar los detalles de la red, n para netsh`n"
+
+            Write-Host "`n`nUsa b para buscar los detalles de la red, n para netsh`n"
         }
     }
 }
