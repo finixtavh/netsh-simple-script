@@ -14,6 +14,13 @@ while ($var -ne "exit") {
     Write-Host "   |   V2.1                                                                               |" -ForegroundColor Cyan
     Write-Host "   +====================================+====================================+============+" -ForegroundColor Cyan
 
+    Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
+    Write-Host "   | b  -> $arg show profile             |" -ForegroundColor Green
+    Write-Host "   | n  -> Redes                         |" -ForegroundColor Green
+    Write-Host "   | c  -> Configuracion                 |" -ForegroundColor Green
+    Write-Host "   | a  -> Todas las redes conectadas    |" -ForegroundColor Green
+    Write-Host "   +------------------------------------+" -ForegroundColor DarkCyan
+    $var = Read-Host ":: "
     if (-not (Test-Path $filepath)) {
         Set-Content -Path $filepath -Value $null
     }
@@ -61,10 +68,10 @@ while ($var -ne "exit") {
             Write-Host "`n   Selecciona una opcion:" -ForegroundColor White
 
             Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
-            Write-Host "   | T  -> Tipo de conexion (Wlan/Lan)  |" -ForegroundColor Green
-            Write-Host "   | C  -> Copiar contrasena (True/Fal) |" -ForegroundColor Green
-            Write-Host "   | F  -> Cambiar ruta del archivo     |" -ForegroundColor Green
-            Write-Host "   | M  -> Cantidad de caracteres '='   |" -ForegroundColor Green
+            Write-Host "   | T  -> Tipo de conexion (wlan/lan)   |" -ForegroundColor Green
+            Write-Host "   | C  -> Copiar contraseña (True/False)|" -ForegroundColor Green
+            Write-Host "   | F  -> Cambiar ruta del archivo      |" -ForegroundColor Green
+            Write-Host "   | M  -> Cantidad de caracteres '='    |" -ForegroundColor Green
             Write-Host "   +------------------------------------+" -ForegroundColor DarkCyan
 
             Write-Host "`n"
@@ -140,8 +147,8 @@ while ($var -ne "exit") {
         }
 
         default {
-
             Write-Host "`n`nUsa b para buscar los detalles de la red, n para netsh`n"
+            Start-Sleep -Seconds 2
         }
     }
 }
