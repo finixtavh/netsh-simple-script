@@ -8,7 +8,11 @@ $lineseparator = "=" * $charmultiplier + "`n"
 while ($var -ne "exit") {
     Write-Host "$lineseparator"
     Write-Host "Copiar al portapapeles?= $enableclipboard `nRuta del archivo: $filepath`n $arg"
-    $var = Read-Host "`n`nB = Buscar`nN = netsh`nexit = salir del bucle`nC = Config.`nA = Guardar todas las claves`njson = Convertir .txt a .json`n:: "
+    Write-Host "`n" 
+    Write-Host "   +====================================+====================================+============+" -ForegroundColor Cyan
+    Write-Host "   |   netsh-simple-script Github: https://github.com/finixtavh/netsh-simple-script       |" -ForegroundColor Cyan
+    Write-Host "   |   V2.1                                                                               |" -ForegroundColor Cyan
+    Write-Host "   +====================================+====================================+============+" -ForegroundColor Cyan
 
     if (-not (Test-Path $filepath)) {
         Set-Content -Path $filepath -Value $null
@@ -49,8 +53,21 @@ while ($var -ne "exit") {
         }
 
         "c" {
-            Write-Host "Configuracion:`n`n"
-            $op = Read-Host "T = tipo de conexion (Wlan o Lan) || C = Copiar la contraseña al portapapeles (True o False) || F = Cambiar ruta del archivo"
+            Write-Host "`n" 
+            Write-Host "   +====================================+" -ForegroundColor Cyan
+            Write-Host "   |   CONFIGURACION DEL SISTEMA       |" -ForegroundColor Cyan
+            Write-Host "   +====================================+" -ForegroundColor Cyan
+
+            Write-Host "`n   Selecciona una opcion:" -ForegroundColor White
+
+            Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
+            Write-Host "   | T  -> Tipo de conexion (Wlan/Lan)  |" -ForegroundColor Green
+            Write-Host "   | C  -> Copiar contrasena (True/Fal) |" -ForegroundColor Green
+            Write-Host "   | F  -> Cambiar ruta del archivo     |" -ForegroundColor Green
+            Write-Host "   | M  -> Cantidad de caracteres '='   |" -ForegroundColor Green
+            Write-Host "   +------------------------------------+" -ForegroundColor DarkCyan
+
+            Write-Host "`n"
             switch ($op.toLower()) {
                 "t" {
                     if ($arg -eq "wlan") {
@@ -81,10 +98,12 @@ while ($var -ne "exit") {
                 }
 
                 "m" {
-                    while ($) {
+                    $loop = $true
+                    while ($loop -eq $true) {
                         $charmultiplier = Read-Host ": "
-                        if ($charmultiplier -is [int]) {
-                            break
+                        if ([int]::TryParse($charmultiplier, [ref] $null)) {
+                            $lineseparator = "=" * $charmultiplier + "`n"
+                            $loop = $false
                         }
                     } 
                 }   
