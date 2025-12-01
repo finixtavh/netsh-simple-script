@@ -2,17 +2,16 @@ $var = ""
 $arg = "wlan"
 $filepath = "c.txt"
 $enableclipboard = $false
-$charmultiplier = 40
-$lineseparator = "=" * $charmultiplier + "`n"
+$lineseparator = "=" * 60 + "`n"
 
 while ($var -ne "exit") {
     Write-Host "$lineseparator"
-    Write-Host "Copiar al portapapeles?= $enableclipboard `nRuta del archivo: $filepath`n $arg"
-    Write-Host "`n" 
+    Write-Host "Copiar al portapapeles?= $enableclipboard `nRuta del archivo: $filepath`n$arg"
     Write-Host "   +====================================+====================================+============+" -ForegroundColor Cyan
     Write-Host "   |   netsh-simple-script Github: https://github.com/finixtavh/netsh-simple-script       |" -ForegroundColor Cyan
     Write-Host "   |   V2.1                                                                               |" -ForegroundColor Cyan
     Write-Host "   +====================================+====================================+============+" -ForegroundColor Cyan
+    Write-Host "   Directorio del script: $PSScriptRoot" -ForegroundColor Cyan
 
     Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
     Write-Host "   | b  -> $arg show profile             |" -ForegroundColor Green
@@ -101,18 +100,7 @@ while ($var -ne "exit") {
                     Write-Host "Portapapeles: $enableclipboard"
                 }
                 "f" {
-                    $filepath = Read-Host "Coloca la ruta:"
-                }
-
-                "m" {
-                    $loop = $true
-                    while ($loop -eq $true) {
-                        $charmultiplier = Read-Host ": "
-                        if ([int]::TryParse($charmultiplier, [ref] $null)) {
-                            $lineseparator = "=" * $charmultiplier + "`n"
-                            $loop = $false
-                        }
-                    } 
+                    $filepath = Read-Host "Coloca la ruta:" 
                 }   
             }
         }

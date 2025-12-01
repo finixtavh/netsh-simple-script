@@ -7,3 +7,4 @@ Just a simple automated netsh script i made like 1 year ago
 
 ## About
 I did this proyect just for learning purposes, without any intention of make any troubles
+
