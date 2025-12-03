@@ -1,0 +1,1 @@
+Get-WiFiProfile -ProfileName "moto g71" -ClearKey | Select-Object ProfileName, Password
