@@ -1,3 +1,5 @@
+Get-Module -Name WiFiProfileManagement
+
 $var = ""
 $arg = "wlan"
 $filepath = "c.txt"
@@ -14,10 +16,10 @@ while ($var -ne "exit") {
     Write-Host "   Directorio del script: $PSScriptRoot" -ForegroundColor Cyan
 
     Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
-    Write-Host "   | b  -> $arg show profile             |" -ForegroundColor Green
-    Write-Host "   | n  -> Redes                         |" -ForegroundColor Green
-    Write-Host "   | c  -> Configuracion                 |" -ForegroundColor Green
-    Write-Host "   | a  -> Todas las redes conectadas    |" -ForegroundColor Green
+    Write-Host "   | b  -> $arg show profile            |" -ForegroundColor Green
+    Write-Host "   | n  -> Redes                        |" -ForegroundColor Green
+    Write-Host "   | c  -> Configuracion                |" -ForegroundColor Green
+    Write-Host "   | a  -> Todas las redes conectadas   |" -ForegroundColor Green
     Write-Host "   +------------------------------------+" -ForegroundColor DarkCyan
     $var = Read-Host ":: "
     if (-not (Test-Path $filepath)) {
@@ -135,7 +137,7 @@ while ($var -ne "exit") {
         }
 
         default {
-            Write-Host "`n`nUsa b para buscar los detalles de la red, n para netsh`n"
+            Write-Host "`n`nNo reconocido`n" -ForegroundColor Red -Ba
             Start-Sleep -Seconds 2
         }
     }
