@@ -63,16 +63,15 @@ while ($var -ne "exit") {
         "c" {
             Write-Host "`n" 
             Write-Host "   +====================================+" -ForegroundColor Cyan
-            Write-Host "   |   CONFIGURACION DEL SISTEMA       |" -ForegroundColor Cyan
+            Write-Host "   |   CONFIGURACION                    |" -ForegroundColor Cyan
             Write-Host "   +====================================+" -ForegroundColor Cyan
 
             Write-Host "`n   Selecciona una opcion:" -ForegroundColor White
 
-            Write-Host "`n   +------------------------------------+" -ForegroundColor DarkCyan
+            Write-Host "`n +------------------------------------+" -ForegroundColor DarkCyan
             Write-Host "   | T  -> Tipo de conexion (wlan/lan)   |" -ForegroundColor Green
             Write-Host "   | C  -> Copiar contraseña (True/False)|" -ForegroundColor Green
             Write-Host "   | F  -> Cambiar ruta del archivo      |" -ForegroundColor Green
-            Write-Host "   | M  -> Cantidad de caracteres '='    |" -ForegroundColor Green
             Write-Host "   +------------------------------------+" -ForegroundColor DarkCyan
 
             Write-Host "`n"
